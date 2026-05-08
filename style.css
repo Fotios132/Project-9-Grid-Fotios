@@ -1,0 +1,137 @@
+/* Border box declaration 
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box;
+}
+/* inherit border-box on all elements in the universe and before and after */
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Arial, Geneva, sans-serif;
+}
+a {
+  color: #2772B0;
+}
+.wrapper {
+  width: 97%;
+  max-width: 1200px;
+  margin: 0 auto;
+  float: none;
+  background-color: transparent; /* fully transparent for the background video */
+}
+
+div img {
+  width: 100%;
+  max-width: 225px; 
+}
+
+/* grid system -- mobile first! */
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 -2%; 
+}
+
+
+[class*="col-"] {
+  margin: 2%;
+  flex: 0 0 96%; 
+  min-width: 200px;
+}
+
+
+.col-1 {
+  background-color: #A3CDD9;
+}
+.col-2 {
+  background-color: #FFFCE6;
+}
+
+/* Tablet Landscape Screen Sizes */
+@media only screen and (min-width: 480px)  {
+  .col-1,
+  .col-2 {
+    flex: 0 0 46%; /* 2 per row on tablet */
+  }
+}
+
+/* Desktop screen Sizes */
+@media only screen and (min-width: 768px) {
+  .col-1 {
+    flex: 0 0 22%; /* 4 per row on desktop */
+  }
+  .col-2 {
+    flex: 0 0 46%; /* 2 per row for wide items */
+  }
+}
+
+.row-3 .col-1:first-child,
+.row-3 .col-1:last-child {
+  flex: 0 0 22%;  
+}
+.row-3 .col-2 {
+  flex: 0 0 46%; 
+}
+
+
+.row-4 .col-1:first-child {
+  flex: 0 0 92%; 
+}
+.row-4 .col-1:not(:first-child) {
+  flex: 0 0 22%; 
+}
+
+
+.row-5 .col-1:first-child,
+.row-5 .col-1:last-child {
+  flex: 0 0 22%; 
+}
+.row-5 .col-2 {
+  flex: 0 0 46%; 
+}
+
+.row-6 .col-1 {
+  flex: 0 0 22%; 
+}
+
+
+@media only screen and (max-width: 768px) {
+  .row-6 .col-1 {
+    flex: 0 0 46%; 
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .row-6 .col-1 {
+    flex: 0 0 95%; 
+  }
+}
+
+
+.row img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Video background professional style :) */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;       
+}
+
+.video-background video {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;  
+}
